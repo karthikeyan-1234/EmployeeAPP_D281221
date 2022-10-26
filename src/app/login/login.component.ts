@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem("jwt_token");
       localStorage.removeItem("refresh_token");
       console.log(err);
+      if(err.status == 401){
+        alert('Invalid username and password..!!');
+      }
     }
     )
   }
