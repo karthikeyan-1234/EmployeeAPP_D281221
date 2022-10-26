@@ -1,0 +1,24 @@
+<div mat-dialog-content>    <!--Converts the HTML into dialog-->
+    <form [formGroup]="employeeForm">    <!--Form Group-->
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input formControlName = "name" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input formControlName = "age" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email ID</mat-label>
+            <input formControlName = "email_id" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>City</mat-label>
+            <input formControlName = "city_id   " matInput>
+        </mat-form-field>
+
+    </form>
+</div>
