@@ -69,7 +69,7 @@ export class JwtInterceptor implements HttpInterceptor {
             console.log("Refresh token expired too. Redirecting to Sign In");
             console.log(err);
             this.router.navigate(['']);
-            return throwError(err);
+            return throwError(() => new Error('test'));
           })
         )}
       }
