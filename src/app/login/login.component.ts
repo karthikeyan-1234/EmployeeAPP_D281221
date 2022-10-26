@@ -28,6 +28,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['employee']);
     },
     (err) => {
+      localStorage.removeItem("jwt_token");
+      localStorage.removeItem("refresh_token");
       console.log(err);
     }
     )
