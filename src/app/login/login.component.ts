@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   userName!: string;
   passWord!: string;
 
-  constructor(private router:Router,private service:LoginService) { }
+  constructor(private router:Router,private service:LoginService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -31,8 +32,9 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem("jwt_token");
       localStorage.removeItem("refresh_token");
       console.log(err);
-      if(err.status == 401){
-        alert('Invalid username and password..!!');
+      if(err.status == 401 || err.status == 400){
+        this.toastr.error("Invalid credentials");
+        //alert('Invalid username and password..!!');
       }
     }
     )
